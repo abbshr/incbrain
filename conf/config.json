@@ -1,0 +1,6 @@
+{
+  "cookieSecret": "incbrain",
+  "db": "incbrain",
+  "host": "localhost",
+  "port": 27017
+}

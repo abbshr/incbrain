@@ -1,12 +1,16 @@
 {
-  "name": "application-name",
+  "name": "incbrain",
   "version": "0.0.1",
   "private": true,
+  "author": "ran",
   "scripts": {
-    "start": "node app.js"
+    "start": "node incbrain.js"
   },
   "dependencies": {
     "express": "3.3.4",
-    "ejs": "*"
+    "ejs": "*",
+    "mongodb": "*",
+    "connect-mongo": "*",
+    "connect-flash": "*"
   }
 }
