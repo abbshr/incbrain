@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 // Express common dependencies modules
 var express = require('express')
