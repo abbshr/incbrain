@@ -13,7 +13,9 @@ make sure npm has been installed correctly, and get the dependences:
     
 after installition, just run:
 
-	./incbrain.js
+	sudo ./incbrain.js
+
+or dbclick the file **incbrain.js** directly from desktop
     
 if u r interested in this project, join me right now~
 
