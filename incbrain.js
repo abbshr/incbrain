@@ -14,7 +14,7 @@ var MongoStore = require('connect-mongo')(express)
 var router = require('./routes/index.js');
 
 // mongodb conf
-var mongoClient = require('./conf/mongo.js');
+//var mongoClient = require('./conf/mongo.js');
 
 // custom config files
 var CONFIG = require('./conf/config.json');
@@ -66,23 +66,6 @@ if ('development' == app.get('env')) {
 // config routers
 router(app);
 
-// init database collections
-/*
-*  hahahaha~, this shape so fun~ ;)
-*  but we dont need it ~~
-*/
-mongoClient(function (err, db) {
-  db.createCollection('igods', {strict:true}
-  function (err, collection) {
-    if (err) console.info('God heaven exists... ', 'ok, it means this is not the first time that u run the app');
-    else console.info("setup Gods database first, xixi~~, we r gods :)");
-    db.close();
-    runServer();
-  });
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
-
-function runServer() {
-  http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
-  });
-}
