@@ -1,4 +1,4 @@
-var isSpace = require('./utils.js').isSpace;
+var isSpace = require('../utils').isSpace;
 
 /* middleware for user sessions checkout */
 exports.checkSession_exist = function (req, res, next) {
