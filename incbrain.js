@@ -31,7 +31,7 @@ var session = {
 
 // middlewares
 var middlewares = {
-  'favicon'       : express.favicon(path.join(__dirname, 'favicon.ico')),
+  'favicon'       : express.favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')),
   'bodyParser'    : express.bodyParser(),
   'methodOverride': express.methodOverride(),
   'logger'        : express.logger('dev'),
