@@ -1,4 +1,4 @@
-var filter = require('./filter.js');
+var isSpace = require('./utils.js').isSpace;
 
 /* middleware for user sessions checkout */
 exports.checkSession_exist = function (req, res, next) {
@@ -12,22 +12,23 @@ exports.checkSession_null = function (req, res, next) {
   else next();
 };
 
-/* @middleware author: HowdyGeek
+/* @author: HowdyGeek, Ran
 *  @date: 2014-4-22
 *
 * middleware for checking registy/signin information valid */
 exports.checkRegSign_valid = function (req, res, next) {
-  var nameReg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/,
-      pwdReg  = /^[a-zA-Z]\w{5,17}$/;
-  var email   = req.body.email,
-      pwd     = req.body.pwd,
-      repwd   = req.body.repwd;
-  if(!email || !nameReg.test(email))
-    req.flash('error', 'Email格式错误'), res.redirect('back');
-  else if(!pwd || !pwdReg.test(pwd))
-    req.flash('error', '密码应以字母开头，长度在6~18之间，只能包含字符、数字和下划线。'), res.redirect('back');
-  else if(!repwd || pwd !== repwd)
-    req.flash('error', '两次输入密码不一致'), res.redirect('back');
+  var emailReg    = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/,
+      pwdReg      = /^[a-zA-Z]\w{5,17}$/;
+  var email       = req.body.email,
+      pwd         = req.body.pwd,
+      repwd       = req.body.repwd;
+  var email_valid = isSpace(email) || !emailReg.test(email),
+      pwd_valid   = isSpace(pwd) || !pwdReg.test(pwd),
+      repwd_valid = isSpace(repwd) || pwd !== repwd;
+
+  if(email_valid) req.flash('error', 'Email格式错误'), res.redirect('back');
+  else if(pwd_valid) req.flash('error', '密码应以字母开头，长度在6~18之间，只能包含字符、数字和下划线。'), res.redirect('back');
+  else if(repwd_valid) req.flash('error', '两次输入密码不一致'), res.redirect('back');
   else next();
 };
 
