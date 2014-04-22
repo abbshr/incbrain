@@ -1,4 +1,3 @@
-
 /* middleware for user sessions checkout */
 exports.checkSession_exist = function (req, res, next) {
   if (!req.session) req.flash('error', '请先登录'), res.redirect('back');
@@ -11,10 +10,13 @@ exports.checkSession_null = function (req, res, next) {
   else next();
 };
 
-/* middleware for checking registy/signin information valid */
+/* @middleware author: HowdyGeek
+*  @date: 2014-4-22
+*
+* middleware for checking registy/signin information valid */
 exports.checkRegSign_valid = function (req, res, next) {
   var nameReg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
-  var pwdReg = ^[a-zA-Z]\w{5,17}$;
+  var pwdReg = /^[a-zA-Z]\w{5,17}$/;
   if(!req.body.email|| !nameReg.test(req.body.email))
     req.flash('error', 'Email格式错误'), res.redirect('back');
   else if(!req.body.pwd|| !pwdReg.test(req.body.pwd))
