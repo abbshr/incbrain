@@ -1,4 +1,4 @@
 
 exports.checker = require('./checker.js');
-exports.filter  = require('./filter.js');
-exports.util    - require('./util.js');
+//exports.filter  = require('./filter.js');
+//exports.utils    = require('./utils.js');
