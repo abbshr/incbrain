@@ -1,13 +1,13 @@
 {
+  "appName": "Incbrain",
+  "favicon": "favicon.ico",
+  
   "cookieSecret": "incbrain",
   "dbname": "incbrain",
   "host": "localhost",
   "port": 27017,
   "mongoConf": {
     "dburl": "mongodb://localhost:27017/incbrain",
-    "options": {
-      "native_parser": true,
-      "raw": true
-    }
+    "options": { "native_parser": true, "raw": true }
   }
 }

@@ -1,15 +1,15 @@
 /* import mongodb */
 var mongoClient = require('../conf/mongo.js');
 
-/* Session checkout modules dependience */
+/* Session checkout middlewares dependience */
 var checker = require('../middleware').checker;
 var checkSession_exist = checker.checkSession_exist,
     checkSession_null  = checker.checkSession_null,
     checkRegSign_valid = checker.checkRegSign_valid;
 
-/* all route handlers logic go here */
 module.exports = appRouter;
 
+/* all route handlers logic go here */
 function appRouter(app) {
   app.get('/', 
   function (req, res) {
